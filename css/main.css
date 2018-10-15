@@ -1,3 +1,5 @@
+/* Use flexbox for this page 
+set some common params for whole page  */
 body {
     width: 96%;
     max-width: 960px;
@@ -11,11 +13,13 @@ body {
     box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
+/* Change color and text decoretion of links from ugly blue and underline */
 a {
     color: #2d3c49;
     text-decoration: none;
 }
 
+/* keep logo and (name, title) apart */
 header {
     margin-top: 20px;
     justify-content: space-between; 
@@ -23,18 +27,19 @@ header {
     display: flex;
 }
 
+/* leave the logo fixed size, don't squeeze it when viewport changes */
 #logo-image {
     width: 150px;
 }
 
+/* Keep name and title on the right and better they be uppercase */
 .header-title-container {
     text-align: right;
     text-transform: uppercase;
 }
 
 .name {
-    font-weight: 300;
-    font-size: 3.3em;
+    font: 300 3.3em "Lato", sans-serif;
     margin-top: 0;
 }
 
@@ -47,21 +52,24 @@ hr {
     width: 100%;
 }
 
+/* Images with round borders seem nicer */
 .round-border {
     border-radius: 5px;
     max-width: 100%;
 }
 
-.main-section {
+/* .main-section {
     max-width: 100%;
-}
+} */
 
+/* We'll use a different image in mobile version for larger screens keep it hidden */
 .main-image-small {
     display: none;
 }
 
+/* keep main image and projects separate */
 .projects-section {
-    margin-top: 40px;
+    margin: 40px 0 0 0;
 }
 
 .projects-section-title {
@@ -70,6 +78,7 @@ hr {
     font-weight: 400;
     font-size: 2em;
 }
+
 .projects-container {
     display: flex;
     flex-wrap: wrap;
@@ -77,6 +86,7 @@ hr {
     justify-content: space-between;
 }
 
+/* Have 3 projects per row */
 .project-article {
     max-width: 33%;
 }
@@ -92,6 +102,7 @@ hr {
     text-decoration: none;
 }
 
+/* Use footer for contact information */
 footer {
     width: 100%;
     display: flex;
@@ -104,21 +115,22 @@ footer {
 
 footer p {
     flex: 1;
-    margin-left: 0px;
-    margin-bottom: 5px;
+    margin: 10px 0 5px 0;
 }
 
 footer ul {
     flex: 1;
     display: flex;
     justify-content: space-around;
-    margin: 5px 5px;
+    margin: 5px 0 ;
     padding-left: 0;
     list-style: none;
 }
 
 /* Use a media query to add a breakpoint at 1000px: */
 @media screen and (max-width: 1000px) {
+
+    /* Make logo smaller, otherwise it seems a bit awkward */
     .logo {
         width: 130px;
     }
@@ -127,6 +139,7 @@ footer ul {
         width: 100%;
     }
 
+    /* Two articles per row is makes it more readable, leave some space between rows */
     .project-article {
         max-width: 48%; 
         font-size: 1.2em;
@@ -134,10 +147,12 @@ footer ul {
         padding-right: 8px;
     }
 
+    /* in this view I believe smaller url make page cleaner */
     .project-url {
         font-size: 0.7em;
     }
     
+    /* Keep the name smaller  */
     .name {
         font-size: 2.3em;
     }
@@ -145,44 +160,53 @@ footer ul {
 
 /* Use a media query to add a breakpoint at 550px: */
 @media screen and (max-width: 550px) {
-    .logo {
-        display: none;
+    
+    /* put the logo on top center and leave some margin  */
+   .logo {
+       margin: 20px auto;
+       width: 75px;
+   }
+
+    header {
+        display: block;
+        text-align: center;
     }
 
+    /* Center name and title in mobile version */
     .header-title-container {
         text-align: center;
-        width: 100%;
     }
 
+    /* Make name bold, it stands out in mobile version */
     .name {
-        font-size: 0.7 em;
         font-weight: 500;
     }
 
-    .projects-container {
-        flex-wrap: wrap;
-        display: flex;      
-    }
-
+    /* only a single project per row for mobile  */
+    /* Leave some space between projects for readability */
     .project-article {
         max-width: 100%; 
-        margin-bottom: 30px;  
+        margin: 0px 0px 30px 0px;
     }
 
+    /* Increase font as we have some space in mobile mode */
     .project-url {
         font-size: 1em;
     }
 
+    /* Again Make title bigger for projects title */
     .projects-section-title{
         text-align: center;
         font-size: 2.3em;
-        margin-top: 30px; 
+        margin: 30px 0px 10px 0px;
     }
 
+    /* Remove the main image as in mobile mode it is too small to be the main */
     .main-image-big {
         display: none;
     }
 
+    /* Instead display a closeup image for main (also a square image) easier to see in mobile */
     .main-image-small {
         display: flex;
         margin-right: auto;
